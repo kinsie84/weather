@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+</head>
+<body>
+<form id="weather-form" method="get">
+    <select id="city">
+        <option value="LONDON">London</option>
+        <option value="HONG_KONG">Hong Kong</option>
+    </select>
+    <br>
+    <input type="submit" value="Get Weather">
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    $(function() {
+        $('#weather-form').submit(function(){
+            var city = $('#city').val();
+            $(this).attr('action',this.baseURI +"api/weather/" + city);
+
+        });
+    });
+</script>
+</body>
+</html>
