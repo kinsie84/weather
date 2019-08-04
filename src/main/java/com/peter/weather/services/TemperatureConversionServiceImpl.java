@@ -3,5 +3,5 @@ package com.peter.weather.services;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TemperatureConversionServiceImpl {
+public class TemperatureConversionServiceImpl implements TemperatureConversionService{
 }

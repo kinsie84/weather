@@ -1,4 +1,53 @@
 package com.peter.weather.models;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class WeatherReport {
+
+    public LocalDate today;
+    public String cityName;
+    public String description;
+    public double temperatureFahrenheit;
+    public double temperatureCelsius;
+    public LocalTime sunriseTime;
+    public LocalTime sunsetTime;
+
+    public WeatherReport(String cityName, String description){
+        this.cityName = cityName;
+        this.description = description;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getTemperatureFahrenheit() {
+        return temperatureFahrenheit;
+    }
+
+    public void setTemperatureFahrenheit(double temperatureFahrenheit) {
+        this.temperatureFahrenheit = temperatureFahrenheit;
+    }
+
+    public double getTemperatureCelsius() {
+        return temperatureCelsius;
+    }
+
+    public void setTemperatureCelsius(double temperatureCelsius) {
+        this.temperatureCelsius = temperatureCelsius;
+    }
+
 }

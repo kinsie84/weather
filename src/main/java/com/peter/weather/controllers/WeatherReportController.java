@@ -1,6 +1,6 @@
 package com.peter.weather.controllers;
 
-import com.peter.weather.integrations.openweather.OpenWeatherApiCity;
+import com.peter.weather.integrations.openweather.OpenWeatherApiReport;
 import com.peter.weather.integrations.openweather.OpenWeatherApiService;
 import com.peter.weather.models.WeatherReport;
 import com.peter.weather.services.WeatherReportService;
@@ -23,9 +23,13 @@ public class WeatherReportController {
     @GetMapping("/{city}")
     public ModelAndView get(@PathVariable("city") String city) {
 
-        int cityId = OpenWeatherApiCity.valueOf(city).cityId;
 
+        OpenWeatherApiReport openWeatherApiReport = openWeatherApiService.getWeatherForCity(city);
+        WeatherReport weatherReport = weatherReportService.convertOpenWeatherToWeatherReport(openWeatherApiReport);
 
-        return new ModelAndView("report");
+        ModelAndView modelAndView = new ModelAndView("report");
+        modelAndView.getModelMap().addAttribute("city",weatherReport.getCityName());
+        modelAndView.getModelMap().addAttribute("description",weatherReport.getDescription());
+        return modelAndView;
     }
 }
