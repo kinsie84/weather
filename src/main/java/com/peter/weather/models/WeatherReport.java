@@ -18,6 +18,13 @@ public class WeatherReport {
         this.description = description;
     }
 
+    public LocalDate getToday() {
+        return today;
+    }
+
+    public void setToday(LocalDate today) {
+        this.today = today;
+    }
 
     public String getCityName() {
         return cityName;
