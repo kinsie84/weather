@@ -3,8 +3,6 @@ package com.peter.weather.integrations.openweather;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-import java.time.Instant;
-import java.time.LocalTime;
 import java.util.List;
 import java.util.Map;
 

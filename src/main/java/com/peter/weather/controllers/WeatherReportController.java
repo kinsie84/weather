@@ -30,6 +30,8 @@ public class WeatherReportController {
         ModelAndView modelAndView = new ModelAndView("report");
         modelAndView.getModelMap().addAttribute("city",weatherReport.getCityName());
         modelAndView.getModelMap().addAttribute("description",weatherReport.getDescription());
+        modelAndView.getModelMap().addAttribute("fahrenheit",weatherReport.getTemperatureFahrenheit());
+        modelAndView.getModelMap().addAttribute("celsius",weatherReport.getTemperatureCelsius());
         return modelAndView;
     }
 }

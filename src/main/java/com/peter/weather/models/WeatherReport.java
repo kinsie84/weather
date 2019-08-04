@@ -8,8 +8,8 @@ public class WeatherReport {
     public LocalDate today;
     public String cityName;
     public String description;
-    public double temperatureFahrenheit;
-    public double temperatureCelsius;
+    public Double temperatureFahrenheit;
+    public Double temperatureCelsius;
     public LocalTime sunriseTime;
     public LocalTime sunsetTime;
 
@@ -34,19 +34,19 @@ public class WeatherReport {
         this.description = description;
     }
 
-    public double getTemperatureFahrenheit() {
+    public Double getTemperatureFahrenheit() {
         return temperatureFahrenheit;
     }
 
-    public void setTemperatureFahrenheit(double temperatureFahrenheit) {
+    public void setTemperatureFahrenheit(Double temperatureFahrenheit) {
         this.temperatureFahrenheit = temperatureFahrenheit;
     }
 
-    public double getTemperatureCelsius() {
+    public Double getTemperatureCelsius() {
         return temperatureCelsius;
     }
 
-    public void setTemperatureCelsius(double temperatureCelsius) {
+    public void setTemperatureCelsius(Double temperatureCelsius) {
         this.temperatureCelsius = temperatureCelsius;
     }
 

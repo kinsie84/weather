@@ -1,5 +1,6 @@
 package com.peter.weather.integrations.openweather;
 
+import org.springframework.stereotype.Service;
 
 @Service
 public interface OpenWeatherApiService {

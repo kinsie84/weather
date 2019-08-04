@@ -6,13 +6,13 @@
 </head>
 <body>
 
-<h1> This is the weather report for: <span th:text="${city}"></span> </h1>
+<h3> This is the weather report for: <span th:text="${city}"></span> </h3>
 <div>
     <ul>
         <li>Today's Date: </li>
-        <li>Description:<span th:text="${description}"></span> </li>
-        <li>Temperature (Fahrenheit):</li>
-        <li>Temperature (Celsius):</li>
+        <li>Description: <strong><span th:text="${description}"></span></strong></li>
+        <li>Temperature (Fahrenheit): <strong><span th:text="${fahrenheit}"></span></strong></li>
+        <li>Temperature (Celsius): <strong><span th:text="${celsius}"></span></strong></li>
         <li>Sunrise Time: </li>
         <li>Sunset Time: </li>
     </ul>

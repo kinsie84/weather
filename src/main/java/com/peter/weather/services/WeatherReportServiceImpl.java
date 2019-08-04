@@ -20,6 +20,17 @@ public class WeatherReportServiceImpl implements WeatherReportService{
 
         WeatherReport weatherReport = new WeatherReport(openWeatherApiReport.getCityName(),
                 openWeatherApiReport.getDescription());
+
+        Double temperatureFahrenheit = temperatureConversionService.
+                convertKelvinTemperatureToFahrenheit(openWeatherApiReport.getTemperatureKelvin());
+        weatherReport.setTemperatureFahrenheit(temperatureFahrenheit);
+
+        Double temperatureCelsius = temperatureConversionService.
+                convertKelvinTemperatureToCelsius(openWeatherApiReport.getTemperatureKelvin());
+        weatherReport.setTemperatureCelsius(temperatureCelsius);
+
+
+
         return weatherReport;
     }
 }

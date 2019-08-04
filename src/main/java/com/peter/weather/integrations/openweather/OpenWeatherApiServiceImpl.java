@@ -1,5 +1,5 @@
 package com.peter.weather.integrations.openweather;
-
+;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
