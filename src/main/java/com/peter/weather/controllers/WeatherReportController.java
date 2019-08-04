@@ -1,9 +1,13 @@
 package com.peter.weather.controllers;
 
-import com.peter.weather.integrations.openweather.OpenWeatherApiReport;
-import com.peter.weather.integrations.openweather.OpenWeatherApiService;
+import com.peter.weather.integrations.weather.ApiWeatherReport;
+import com.peter.weather.integrations.weather.openweather.OpenWeatherApiReport;
+import com.peter.weather.integrations.weather.WeatherApiService;
+import com.peter.weather.integrations.weather.openweather.OpenWeatherApiServiceImpl;
 import com.peter.weather.models.WeatherReport;
 import com.peter.weather.services.WeatherReportService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,20 +22,22 @@ public class WeatherReportController {
     @Autowired
     WeatherReportService weatherReportService;
     @Autowired
-    OpenWeatherApiService openWeatherApiService;
+    WeatherApiService weatherApiService;
+    Logger logger = LoggerFactory.getLogger(WeatherReportController.class);
 
     @GetMapping("/{city}")
     public ModelAndView get(@PathVariable("city") String city) {
 
 
-        OpenWeatherApiReport openWeatherApiReport = openWeatherApiService.getWeatherForCity(city);
-        WeatherReport weatherReport = weatherReportService.convertOpenWeatherToWeatherReport(openWeatherApiReport);
+        ApiWeatherReport apiWeatherReport = weatherApiService.getWeatherForCity(city);
+        WeatherReport weatherReport = weatherReportService.convertApiWeatherToWeatherReport(apiWeatherReport);
 
         ModelAndView modelAndView = new ModelAndView("report");
         modelAndView.getModelMap().addAttribute("city",weatherReport.getCityName());
         modelAndView.getModelMap().addAttribute("description",weatherReport.getDescription());
-        modelAndView.getModelMap().addAttribute("fahrenheit",weatherReport.getTemperatureFahrenheit());
-        modelAndView.getModelMap().addAttribute("celsius",weatherReport.getTemperatureCelsius());
+        modelAndView.getModelMap().addAttribute("fahrenheit",weatherReport.getTemperatureFahrenheit() + "°") ;
+        modelAndView.getModelMap().addAttribute("celsius",weatherReport.getTemperatureCelsius()+ "°");
+
         return modelAndView;
     }
 }

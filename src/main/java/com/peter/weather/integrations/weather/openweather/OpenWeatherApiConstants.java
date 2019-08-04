@@ -1,4 +1,4 @@
-package com.peter.weather.integrations.openweather;
+package com.peter.weather.integrations.weather.openweather;
 
 public class OpenWeatherApiConstants {
 

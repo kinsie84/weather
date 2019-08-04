@@ -18,6 +18,7 @@ public class WeatherReport {
         this.description = description;
     }
 
+
     public String getCityName() {
         return cityName;
     }

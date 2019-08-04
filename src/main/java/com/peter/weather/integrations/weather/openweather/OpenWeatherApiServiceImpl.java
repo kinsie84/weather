@@ -1,15 +1,24 @@
-package com.peter.weather.integrations.openweather;
+package com.peter.weather.integrations.weather.openweather;
 ;
+import com.peter.weather.integrations.weather.WeatherApiService;
+import com.peter.weather.services.DateTimeConversionServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class OpenWeatherApiServiceImpl implements OpenWeatherApiService{
+public class OpenWeatherApiServiceImpl implements WeatherApiService {
+
+    Logger logger = LoggerFactory.getLogger(OpenWeatherApiServiceImpl.class);
 
     public OpenWeatherApiReport getWeatherForCity(String city){
 
+
         // TODO: method to get cityId from String
-        int cityId = OpenWeatherApiCity.valueOf(city).cityId;
+        Integer cityId = OpenWeatherApiCity.valueOf(city).cityId;
+
+        //
 
         RestTemplate restTemplate = new RestTemplate();
 
