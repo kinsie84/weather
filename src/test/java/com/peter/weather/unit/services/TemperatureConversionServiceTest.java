@@ -1,5 +1,6 @@
-package com.peter.weather.services;
+package com.peter.weather.unit.services;
 
+import com.peter.weather.services.TemperatureConversionService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

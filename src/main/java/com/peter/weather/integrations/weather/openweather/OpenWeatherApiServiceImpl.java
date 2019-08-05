@@ -23,8 +23,8 @@ public class OpenWeatherApiServiceImpl implements WeatherApiService {
         if(apiUrl == null){
 
             return null;
-
         }
+
         OpenWeatherApiReport openWeatherApiReport = restTemplate.getForObject(apiUrl, OpenWeatherApiReport.class);
 
         return openWeatherApiReport;
@@ -38,7 +38,7 @@ public class OpenWeatherApiServiceImpl implements WeatherApiService {
         try {
             cityId = OpenWeatherApiCity.valueOf(city).cityId;
 
-        } catch (NullPointerException exception) {
+        } catch (NullPointerException | IllegalArgumentException exception) {
 
             LOGGER.error("Unable to retrieve weather entry to populate 'description' : " + exception.getMessage());
 

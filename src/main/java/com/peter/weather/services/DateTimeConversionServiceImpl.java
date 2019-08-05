@@ -9,13 +9,13 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class DateTimeConversionServiceImpl implements DateTimeConversionService {
 
-    public LocalDate getCurrentDateByTimezone(long secondsOffset) throws DateTimeException {
+    public LocalDate getCurrentDateByTimezone(long secondsOffset) {
 
         if (secondsOffset == 0) {
 
             return LocalDate.now(ZoneId.of("UTC+00:00"));
-
         }
+
         ZoneId zoneId = getZoneIdBySecondsOffset(secondsOffset);
 
         return LocalDate.now(zoneId);

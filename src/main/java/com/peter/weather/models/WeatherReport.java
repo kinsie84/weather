@@ -12,10 +12,6 @@ public class WeatherReport {
     public String sunriseTime;
     public String sunsetTime;
 
-    public WeatherReport(String cityName, String description){
-        this.cityName = cityName;
-        this.description = description;
-    }
 
     public LocalDate getToday() {
         return today;
