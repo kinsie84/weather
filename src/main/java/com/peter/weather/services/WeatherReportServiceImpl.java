@@ -19,7 +19,7 @@ public class WeatherReportServiceImpl implements WeatherReportService{
     @Autowired
     TemperatureConversionService temperatureConversionService;
 
-    Logger LOGGER = LoggerFactory.getLogger(WeatherReportServiceImpl.class);
+    private Logger LOGGER = LoggerFactory.getLogger(WeatherReportServiceImpl.class);
 
     @Override
     public WeatherReport convertApiWeatherToWeatherReport(WeatherApiReport apiWeatherReport) {
@@ -30,9 +30,8 @@ public class WeatherReportServiceImpl implements WeatherReportService{
         try {
             LocalDate today = dateTimeConversionService.getCurrentDateByTimezone(apiWeatherReport.getTimezone());
             weatherReport.setToday(today);
-
         } catch (DateTimeException exception) {
-            LOGGER.error(exception.getMessage());
+            LOGGER.error("Unable to set today's date: " + exception.getMessage());
         }
 
         Double temperatureFahrenheit = temperatureConversionService.

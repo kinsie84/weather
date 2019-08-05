@@ -24,15 +24,22 @@ public class WeatherReportController {
     @GetMapping("/{city}")
     public ModelAndView get(@PathVariable("city") String city) {
 
-
         WeatherApiReport apiWeatherReport = weatherApiService.getWeatherForCity(city);
-        WeatherReport weatherReport = weatherReportService.convertApiWeatherToWeatherReport(apiWeatherReport);
 
-        ModelAndView modelAndView = new ModelAndView("report");
+        if (apiWeatherReport != null) {
+            WeatherReport weatherReport = weatherReportService.convertApiWeatherToWeatherReport(apiWeatherReport);
 
-        generateWeatherModel(modelAndView.getModelMap(),weatherReport);
+            ModelAndView modelAndView = new ModelAndView("report");
 
-        return modelAndView;
+            generateWeatherModel(modelAndView.getModelMap(), weatherReport);
+
+            return modelAndView;
+
+        } else {
+
+            return new ModelAndView("error");
+        }
+
     }
 
     private void generateWeatherModel(ModelMap modelMap, WeatherReport weatherReport){
@@ -42,9 +49,13 @@ public class WeatherReportController {
                 weatherReport.getToday() : "There was an issue retrieving today's date");
         modelMap.addAttribute("description", weatherReport.getDescription() != null ?
                 weatherReport.getDescription() : "There was an issue retrieving the description");
-        modelMap.addAttribute("fahrenheit", weatherReport.getTemperatureFahrenheit() + "°");
-        modelMap.addAttribute("celsius", weatherReport.getTemperatureCelsius() + "°");
-        modelMap.addAttribute("sunrise", weatherReport.getSunriseTime());
-        modelMap.addAttribute("sunset", weatherReport.getSunsetTime());
+        modelMap.addAttribute("fahrenheit", weatherReport.getTemperatureFahrenheit()!=null?
+                weatherReport.getTemperatureFahrenheit() + "°": "There was an issue receiving the fahrenheit temperature");
+        modelMap.addAttribute("celsius", weatherReport.getTemperatureCelsius()!=null?
+                weatherReport.getTemperatureCelsius() + "°": "There was an issue receiving the celsius temperature");
+        modelMap.addAttribute("sunrise", weatherReport.getSunriseTime()!=null?
+                weatherReport.getSunriseTime(): "There was an issue receiving the sunrise time");
+        modelMap.addAttribute("sunset", weatherReport.getSunsetTime()!=null?
+                weatherReport.getSunsetTime(): "There was an issue receiving the sunset time");
     }
 }

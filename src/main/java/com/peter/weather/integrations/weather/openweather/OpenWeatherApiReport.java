@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class OpenWeatherApiReport extends WeatherApiReport {
 
-    Logger LOGGER = LoggerFactory.getLogger(OpenWeatherApiReport.class);
+    private Logger LOGGER = LoggerFactory.getLogger(OpenWeatherApiReport.class);
 
     @JsonProperty("weather")
     public void setWeather(List<Map<String, Object>> weatherEntries) {
