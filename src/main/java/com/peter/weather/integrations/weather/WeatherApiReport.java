@@ -1,6 +1,6 @@
 package com.peter.weather.integrations.weather;
 
-public class ApiWeatherReport {
+public class WeatherApiReport {
 
     private String cityName;
     private String description;
@@ -8,7 +8,6 @@ public class ApiWeatherReport {
     private Long sunsetTime;
     private Long sunriseTime;
     private Long timezone;
-
 
     public String getCityName() {
         return cityName;

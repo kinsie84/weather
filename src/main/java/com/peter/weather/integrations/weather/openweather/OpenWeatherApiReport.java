@@ -2,19 +2,26 @@ package com.peter.weather.integrations.weather.openweather;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import com.peter.weather.integrations.weather.ApiWeatherReport;
+import com.peter.weather.integrations.weather.WeatherApiReport;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Map;
 
-public class OpenWeatherApiReport extends ApiWeatherReport {
+public class OpenWeatherApiReport extends WeatherApiReport {
 
+    Logger LOGGER = LoggerFactory.getLogger(OpenWeatherApiReport.class);
 
     @JsonProperty("weather")
     public void setWeather(List<Map<String, Object>> weatherEntries) {
+        try{
         Map<String, Object> weather = weatherEntries.get(0);
-        //TODO: handle cases where is out of bounds(catch index out of bounds exception)
         setDescription((String) weather.get("description"));
+
+        }catch(IndexOutOfBoundsException exception){
+            LOGGER.error("Unable to retrieve weather entry to populate 'description' : " + exception.getMessage());
+        }
     }
 
     @JsonProperty("main")

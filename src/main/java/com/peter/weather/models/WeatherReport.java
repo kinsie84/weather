@@ -1,7 +1,6 @@
 package com.peter.weather.models;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class WeatherReport {
 
@@ -10,8 +9,8 @@ public class WeatherReport {
     public String description;
     public Double temperatureFahrenheit;
     public Double temperatureCelsius;
-    public LocalTime sunriseTime;
-    public LocalTime sunsetTime;
+    public String sunriseTime;
+    public String sunsetTime;
 
     public WeatherReport(String cityName, String description){
         this.cityName = cityName;
@@ -58,4 +57,19 @@ public class WeatherReport {
         this.temperatureCelsius = temperatureCelsius;
     }
 
+    public String getSunriseTime() {
+        return sunriseTime;
+    }
+
+    public void setSunriseTime(String sunriseTime) {
+        this.sunriseTime = sunriseTime;
+    }
+
+    public String getSunsetTime() {
+        return sunsetTime;
+    }
+
+    public void setSunsetTime(String sunsetTime) {
+        this.sunsetTime = sunsetTime;
+    }
 }

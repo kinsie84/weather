@@ -1,7 +1,5 @@
 package com.peter.weather.services;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -9,8 +7,6 @@ import java.math.RoundingMode;
 
 @Service
 public class TemperatureConversionServiceImpl implements TemperatureConversionService{
-
-    Logger logger = LoggerFactory.getLogger(TemperatureConversionServiceImpl.class);
 
     @Override
     public Double convertKelvinTemperatureToCelsius(Double temperatureKelvin) {
