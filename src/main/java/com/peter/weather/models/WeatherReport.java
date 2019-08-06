@@ -12,7 +12,6 @@ public class WeatherReport {
     public String sunriseTime;
     public String sunsetTime;
 
-
     public LocalDate getToday() {
         return today;
     }

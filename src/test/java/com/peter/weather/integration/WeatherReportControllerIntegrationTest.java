@@ -11,6 +11,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -31,7 +34,15 @@ public class WeatherReportControllerIntegrationTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.model().attribute("city","London"));
+    }
 
+    @Test
+    public void givenLondonReturnCorrectDate() throws  Exception {
+
+        mvc.perform(get("/api/weather/LONDON")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.model().attribute("today", LocalDate.now(ZoneId.of("UTC+01:00"))));
     }
 
     @Test
@@ -41,7 +52,15 @@ public class WeatherReportControllerIntegrationTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.model().attribute("city","Hong Kong"));
+    }
 
+    @Test
+    public void givenHongKongReturnCorrectDate() throws  Exception {
+
+        mvc.perform(get("/api/weather/HONG_KONG")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.model().attribute("today", LocalDate.now(ZoneId.of("UTC+08:00"))));
     }
 
     @Test
@@ -51,8 +70,6 @@ public class WeatherReportControllerIntegrationTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("error"));
-
     }
-
 
 }

@@ -15,10 +15,9 @@ import java.time.format.DateTimeFormatter;
 public class WeatherReportServiceImpl implements WeatherReportService {
 
     @Autowired
-    DateTimeConversionService dateTimeConversionService;
+    private DateTimeConversionService dateTimeConversionService;
     @Autowired
-    TemperatureConversionService temperatureConversionService;
-
+    private TemperatureConversionService temperatureConversionService;
     private Logger LOGGER = LoggerFactory.getLogger(WeatherReportServiceImpl.class);
 
     @Override

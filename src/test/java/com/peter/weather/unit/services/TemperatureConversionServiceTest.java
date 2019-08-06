@@ -19,7 +19,7 @@ public class TemperatureConversionServiceTest {
     @Test
     public void testConvertKelvinToCelsius(){
 
-        Double expected = new Double(26.85);
+        Double expected = 26.85;
 
         Double celsiusResult = temperatureConversionService.convertKelvinTemperatureToCelsius(300.0);
 
@@ -28,13 +28,36 @@ public class TemperatureConversionServiceTest {
     }
 
     @Test
+    public void testConvertKelvinAtZeroToCelsius(){
+
+        Double expected = -273.15;
+
+        Double celsiusResult = temperatureConversionService.convertKelvinTemperatureToCelsius(0.00);
+
+        Assert.assertEquals(expected,celsiusResult);
+
+    }
+
+    @Test
     public void testConvertKelvinToFahrenheit(){
 
-        Double expected = new Double(8.33);
+        Double expected = 8.33;
 
         Double fahrenheitResult = temperatureConversionService.convertKelvinTemperatureToFahrenheit(260.0);
 
         Assert.assertEquals(expected,fahrenheitResult);
 
     }
+
+    @Test
+    public void testConvertKelvinAtZeroToFahrenheit(){
+
+        Double expected = -459.67;
+
+        Double celsiusResult = temperatureConversionService.convertKelvinTemperatureToFahrenheit(0.00);
+
+        Assert.assertEquals(expected,celsiusResult);
+
+    }
+
 }

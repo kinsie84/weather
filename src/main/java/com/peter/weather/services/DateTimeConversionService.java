@@ -10,7 +10,6 @@ public interface DateTimeConversionService {
 
     LocalDate getCurrentDateByTimezone(long secondsOffset);
 
-
     String convertEpochToFormattedTime(long unixTime, long secondsOffset, DateTimeFormatter dateTimeFormatter);
 
 }

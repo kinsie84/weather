@@ -7,8 +7,7 @@ public enum OpenWeatherApiCity {
 
     public final int cityId;
 
-
-    private OpenWeatherApiCity(int cityId){
+    OpenWeatherApiCity(int cityId){
         this.cityId = cityId;
     }
 }

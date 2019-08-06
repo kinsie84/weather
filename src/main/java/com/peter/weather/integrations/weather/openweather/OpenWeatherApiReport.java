@@ -14,7 +14,7 @@ public class OpenWeatherApiReport extends WeatherApiReport {
     private Logger LOGGER = LoggerFactory.getLogger(OpenWeatherApiReport.class);
 
     @JsonProperty("weather")
-    public void setWeather(List<Map<String, Object>> weatherEntries) {
+    public void setWeatherFromJson(List<Map<String, Object>> weatherEntries) {
         try{
         Map<String, Object> weather = weatherEntries.get(0);
         setDescription((String) weather.get("description"));
@@ -25,12 +25,12 @@ public class OpenWeatherApiReport extends WeatherApiReport {
     }
 
     @JsonProperty("main")
-    public void setMain(Map<String, Object> main) {
+    public void setMainFromJson(Map<String, Object> main) {
         setTemperature(Double.parseDouble(main.get("temp").toString()));
     }
 
     @JsonProperty("sys")
-    public void setSys(Map<String, Object> sys) {
+    public void setSysFromJson(Map<String, Object> sys) {
         setSunriseTime(Long.parseLong(sys.get("sunrise").toString()));
         setSunsetTime(Long.parseLong(sys.get("sunset").toString()));
     }

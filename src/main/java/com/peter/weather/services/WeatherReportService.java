@@ -8,4 +8,5 @@ import org.springframework.stereotype.Service;
 public interface WeatherReportService {
 
     WeatherReport convertApiWeatherToWeatherReport(WeatherApiReport apiWeatherReport);
+
 }

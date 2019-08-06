@@ -37,7 +37,6 @@ public class WeatherReportServiceTest {
         fail("Should have thrown a null pointer exception");
     }
 
-
     @Test
     public void testConvertApiWeatherToWeatherReportDoesNotThowNpeIfObjectPropertiesNotSet(){
 
