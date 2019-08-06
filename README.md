@@ -12,6 +12,7 @@ Maven 3.3.x
 Download/Clone the project on to your local machine:
 
 --> git clone https://github.com/kinsie84/weather.git
+
 Once cloned/downloaded, the application jar file can be built locally using the command: 
 
 --> mvn clean install
