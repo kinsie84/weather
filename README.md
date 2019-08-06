@@ -1,12 +1,14 @@
-# weather
+# Weather
 Website which returns a weather report for either london or hong kong
 
-Prerequisites
+# Prerequisites
 
 JDK 1.8.X
+
 Maven 3.3.x
 
-Build
+# Build
+
 Download/Clone the project on to your local machine:
 
 --> git clone https://github.com/kinsie84/weather.git
@@ -14,7 +16,7 @@ Once cloned/downloaded, the application jar file can be built locally using the 
 
 --> mvn clean install
 
-Run
+# Run
 The jar file can be run with the following commmand:
 
 --> java -jar target/weather-0.0.1-SNAPSHOT.jar
