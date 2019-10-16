@@ -15,7 +15,9 @@ Download/Clone the project on to your local machine:
 
 Once cloned/downloaded, the application jar file can be built locally using the command: 
 
---> mvn clean install or to bypass tests mvn clean install -Dmaven.test.skip=true
+--> mvn clean install 
+or to bypass tests 
+--> mvn clean install -Dmaven.test.skip=true
 
 # Run
 The jar file can be run with the following commmand:
