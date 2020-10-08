@@ -3,7 +3,7 @@ Website which returns a weather report for either london or hong kong
 
 # Prerequisites
 
-JDK 1.8.X
+JRE 1.8.X
 
 Maven 3.3.x
 
